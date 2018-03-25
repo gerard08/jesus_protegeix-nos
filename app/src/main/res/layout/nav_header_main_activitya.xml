@@ -17,7 +17,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/mars" />
+        android:src="@mipmap/mars"
+        android:background="@drawable/cercle"
+        android:onClick="info"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -30,6 +32,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="marsdevelopers@gmail.com" />
+        android:text="marsdeveloppers@gmail.com" />
+
 
 </LinearLayout>

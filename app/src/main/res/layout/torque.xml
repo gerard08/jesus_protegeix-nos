@@ -1,58 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/massa"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/distancia"
+        android:layout_alignStart="@+id/distancia"
+        android:layout_below="@+id/jaume"
+        android:layout_marginTop="61dp"
+        android:ems="10"
         android:gravity="center"
-        android:orientation="vertical">
+        android:hint="Weight (kg)"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="16dp" />
 
-        <EditText
-            android:id="@+id/massa"
-            android:layout_width="462dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="introdueix la massa"
-            android:inputType="numberDecimal"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="16dp" />
+    <EditText
+        android:id="@+id/distancia"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Distance to travel (meters)"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="177dp" />
 
-        <EditText
-            android:id="@+id/distancia"
-            android:layout_width="420dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="introdueix la distància a recorrer"
-            android:inputType="numberDecimal"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="177dp" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/adView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/rodonet"
+        android:onClick="calcula"
+        android:text="Compute"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="494dp" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:background="@drawable/rodonet"
-            android:onClick="calcula"
-            android:layout_margin="50dp"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="494dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/jaume"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:textColor="@android:color/holo_blue_bright"/>
-
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/jaume"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_bright"/>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3420122580859776/9841571249">
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
 </android.support.constraint.ConstraintLayout>
-

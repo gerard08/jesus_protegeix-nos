@@ -1,53 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="50dp">
 
         <EditText
-            android:id="@+id/velocidadinicial"
+            android:id="@+id/dents1"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
+            android:layout_below="@+id/sensiu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="73dp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Speed of the motor"
+            android:hint="Tooth of the first gear"
             android:inputType="numberDecimal"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="16dp" />
 
         <EditText
-            android:id="@+id/dentes1"
+            android:id="@+id/dents2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/velocidadinicial"
-            android:layout_alignStart="@+id/velocidadinicial"
-            android:layout_below="@+id/velocidadinicial"
-            android:layout_marginTop="16dp"
+            android:layout_alignLeft="@+id/dents1"
+            android:layout_alignStart="@+id/dents1"
+            android:layout_below="@+id/dents1"
+            android:layout_marginTop="71dp"
             android:ems="10"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:hint="Tooth of the first tooth"
-            android:inputType="numberDecimal"
-            tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="177dp" />
-
-        <EditText
-            android:id="@+id/dentes2"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button"
-            android:layout_alignLeft="@+id/dentes1"
-            android:layout_alignStart="@+id/dentes1"
-            android:layout_marginBottom="78dp"
-            android:ems="10"
-            android:layout_margin="20dp"
             android:gravity="center"
             android:hint="Tooth of the second gear"
             android:inputType="numberDecimal"
@@ -58,24 +47,23 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="54dp"
+            android:layout_marginBottom="94dp"
             android:background="@drawable/rodonet"
-            android:onClick="velocidad"
+            android:onClick="calculs"
             android:text="Compute"
             android:textColor="@android:color/white"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="494dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/sensiu"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/jaumet"
             android:gravity="center"
-            android:textSize="30sp"
-            android:textColor="@android:color/holo_blue_bright"/>
-
-
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="30sp" />
         <com.google.android.gms.ads.AdView
             xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
@@ -84,7 +72,8 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3420122580859776/4870517412">
+            ads:adUnitId="ca-app-pub-3420122580859776/1935564016">
         </com.google.android.gms.ads.AdView>
-    </LinearLayout>
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

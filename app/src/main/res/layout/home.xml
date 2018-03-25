@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -13,4 +17,22 @@
         android:layout_margin="10dp"
         android:textSize="40sp"
         android:textColor="@android:color/holo_green_dark"/>
+        <TextView
+            android:id="@+id/explanation"
+            android:layout_below="@id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="24sp"/>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3420122580859776/8669736599">
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

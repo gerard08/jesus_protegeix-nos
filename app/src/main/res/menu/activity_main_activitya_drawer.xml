@@ -19,7 +19,7 @@
         <item
             android:id="@+id/torqueengranatge"
             android:icon="@drawable/engranatges"
-            android:title="engranatge" />
+            android:title="gears" />
     </group>
 
     <item android:title="Communicate">
@@ -31,8 +31,11 @@
             <item
                 android:id="@+id/info"
                 android:icon="@drawable/info"
-                android:title="Info" />
+                android:title="Gear tooth" />
+            <item
+                android:id="@+id/video"
+                android:icon="@drawable/video"
+                android:title="Remove ads" />
         </menu>
     </item>
-
 </menu>
