@@ -23,7 +23,7 @@
             android:layout_marginTop="73dp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Tooth of the first gear"
+            android:hint="nº of tooth of the first gear"
             android:inputType="numberDecimal"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -38,7 +38,7 @@
             android:layout_marginTop="71dp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Tooth of the second gear"
+            android:hint="nº of tooth of the second gear"
             android:inputType="numberDecimal"
             tools:layout_editor_absoluteX="85dp"
             tools:layout_editor_absoluteY="177dp" />

@@ -14,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -39,6 +40,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MainActivitya extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
     int add;
@@ -46,6 +49,7 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
     private InterstitialAd anunci;
     private RewardedVideoAd mRewardedVideoAd;
     private AdView mAdView;
+    private final static String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,7 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        check();
         setContentView(R.layout.activity_main_activitya);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -182,7 +187,8 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             vf.setDisplayedChild(2);
             if (add == 0) {
                 banner();
-            } else {}
+            } else {
+            }
             vaqueta = 0;
 
         } else if (id == R.id.torque) {
@@ -190,7 +196,8 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             vf.setDisplayedChild(0);
             if (add == 0) {
                 banner();
-            } else {}
+            } else {
+            }
             vaqueta = 0;
 
         } else if (id == R.id.speed) {
@@ -198,7 +205,8 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             vf.setDisplayedChild(1);
             if (add == 0) {
                 banner();
-            } else {}
+            } else {
+            }
             vaqueta = 0;
 
         } else if (id == R.id.torqueengranatge) {
@@ -206,7 +214,8 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             vf.setDisplayedChild(4);
             if (add == 0) {
                 banner();
-            } else {}
+            } else {
+            }
             vaqueta = 0;
 
         } else if (id == R.id.nav_share) {
@@ -284,10 +293,7 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
 
         if (add == 0) {
             call();
-        } else {
-            //Toast.makeText(this, "we don't have any ad", Toast.LENGTH_SHORT).show();
         }
-        //mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
 
@@ -374,8 +380,9 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             double Velocitat;
             Velocitat = (VEL1 * DENT1 / DENT2);
             String nieves = Double.toString(Velocitat);
-            String speety = String.format("%.2f", Velocitat);
+            String speety = String.format("%.2f", Velocitat / 60 * 2 * Math.PI);
             jaume.setText(speety + "m/s");
+            Toast.makeText(this, "Keep in mind that this is the gear speed, and we're not counting your pieces weigh or the friction", Toast.LENGTH_LONG).show();
         }
         if (add == 0) {
             call();
@@ -435,5 +442,23 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
         Uri uri = Uri.parse("https://www.instagram.com/marsdeveloppers/"); // missing 'http://' will cause crashed
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
+    }
+
+    public void help(View view) {
+        Toast.makeText(this, "The normal motors default speed is 100, but on the high speed motors is 160", Toast.LENGTH_LONG).show();
+    }
+
+    private void check() {
+        if (getIntent().getExtras() != null) {
+
+            for (String key : getIntent().getExtras().keySet()) {
+                String value = getIntent().getExtras().getString(key);
+
+                if (key.equals("AnotherActivity") && value.equals("True")) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=mars.jesus_protegeix_nos"));
+                    startActivity(browserIntent);
+                }
+            }
+        }
     }
 }

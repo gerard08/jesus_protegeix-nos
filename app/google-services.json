@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "222670030226",
+    "firebase_url": "https://torque-47944.firebaseio.com",
+    "project_id": "torque-47944",
+    "storage_bucket": "torque-47944.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222670030226:android:3d6a6c81c5add9d8",
+        "android_client_info": {
+          "package_name": "mars.jesus_protegeix_nos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222670030226-jmkue6oms70knplt8u6fv9acrlr542m9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mars.jesus_protegeix_nos",
+            "certificate_hash": "6d36a4daa169630d1fbebbb997e854892ffb24af"
+          }
+        },
+        {
+          "client_id": "222670030226-ojrhqjjqdinis0970esl9dkt8evvo712.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQE74Psu3QKkNDcu6sniwUof5cxoCREFg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222670030226-ojrhqjjqdinis0970esl9dkt8evvo712.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
