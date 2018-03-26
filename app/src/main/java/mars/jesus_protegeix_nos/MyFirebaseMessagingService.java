@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -66,16 +67,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
      * Create and show a simple notification containing the received FCM message.
      */
 
-    private void sendNotification(String messageBody, Bitmap image, String TrueOrFalse) {
-        Intent intent = new Intent(this, MainActivitya.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
+    private void sendNotification(String messageBody, Bitmap image, String TrueOrFlase) {
+       // Intent intent = new Intent(this, Splash.class);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //intent.putExtra("AnotherActivity", TrueOrFlase);
+        Intent resultIntent = new Intent(Intent.ACTION_VIEW);
+        resultIntent.setData(Uri.parse("https://play.google.com/store/apps/details?id=mars.jesus_protegeix_nos"));
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, resultIntent,
                 PendingIntent.FLAG_ONE_SHOT);
 
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setLargeIcon(image)/*Notification icon image*/
                 .setSmallIcon(R.drawable.logo)
+                .setLargeIcon(image)
                 .setContentTitle(messageBody)
                 .setStyle(new NotificationCompat.BigPictureStyle()
                         .bigPicture(image))/*Notification with Image*/
@@ -84,7 +89,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService{
                 .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
     }

@@ -16,10 +16,6 @@
             android:name=".MainActivitya"
             android:label="@string/title_activity_main_activitya"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="PACKAGE_NAME.MESSAGE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".Splash">

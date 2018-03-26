@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,12 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.messaging.FirebaseMessaging;
+
 public class Splash extends AppCompatActivity{
     int cucut=5;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
 countdown();
     }
     private void countdown(){
@@ -38,4 +42,5 @@ countdown();
             }
         }.start();
     }
+
 }

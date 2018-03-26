@@ -447,7 +447,6 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
     public void help(View view) {
         Toast.makeText(this, "The normal motors default speed is 100, but on the high speed motors is 160", Toast.LENGTH_LONG).show();
     }
-
     private void check() {
         if (getIntent().getExtras() != null) {
 
@@ -455,10 +454,12 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
                 String value = getIntent().getExtras().getString(key);
 
                 if (key.equals("AnotherActivity") && value.equals("True")) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=mars.jesus_protegeix_nos"));
-                    startActivity(browserIntent);
+                    Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=mars.jesus_protegeix_nos"); // missing 'http://' will cause crashed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
                 }
             }
         }
     }
+
 }
