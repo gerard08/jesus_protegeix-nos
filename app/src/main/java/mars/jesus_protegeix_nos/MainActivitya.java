@@ -9,12 +9,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -28,20 +25,19 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
+
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MainActivitya extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
     int add;
@@ -49,15 +45,14 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
     private InterstitialAd anunci;
     private RewardedVideoAd mRewardedVideoAd;
     private AdView mAdView;
-    private final static String TAG = "MainActivity";
-
+    double mu=0;
+    double r=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        check();
         setContentView(R.layout.activity_main_activitya);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -263,6 +258,16 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             } else mRewardedVideoAd.loadAd("ca-app-pub-3420122580859776/2237525348",
                     new AdRequest.Builder().build());
         }
+        else if (id == R.id.robotspeed) {
+            ViewFlipper vf = findViewById(R.id.vf);
+            vf.setDisplayedChild(5);
+            if (add == 0) {
+                banner();
+            } else {
+            }
+            vaqueta = 0;
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -351,7 +356,7 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             String nieves = Double.toString(Engranatge);
             String speedy;
             speedy = String.format("%.2f", Engranatge);
-            jaume.setText(speedy);
+            jaume.setText("For each turn of the first gear, the second gear will do " + speedy + " turns.");
         }
         if (add == 0) {
             call();
@@ -379,9 +384,8 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             double DENT2 = Integer.parseInt(dd);
             double Velocitat;
             Velocitat = (VEL1 * DENT1 / DENT2);
-            String nieves = Double.toString(Velocitat);
-            String speety = String.format("%.2f", Velocitat / 60 * 2 * Math.PI);
-            jaume.setText(speety + "m/s");
+            String speety = String.format("%.2f", (Velocitat / 60 * 2 * Math.PI));//falta afegir el radi de desplaçament, sino està en radiants!!
+            jaume.setText(speety + "rad/s");
             Toast.makeText(this, "Keep in mind that this is the gear speed, and we're not counting your pieces weigh or the friction", Toast.LENGTH_LONG).show();
         }
         if (add == 0) {
@@ -392,6 +396,84 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
         }
     }
 
+    public void velocidad_robot(View view) {
+        EditText pess = findViewById(R.id.pesrobot);
+        String pp = pess.getText().toString();
+        EditText D1 = findViewById(R.id.dentetes1);
+        String DD = D1.getText().toString();
+        EditText D2 = findViewById(R.id.dentetes2);
+        String dd = D2.getText().toString();
+        EditText v = findViewById(R.id.v0);
+        String V0 = v.getText().toString();
+        TextView alex = findViewById(R.id.ortega);
+        if (pp.equals("") && DD.equals("")) {
+            Toast.makeText(this, "You forgot to fill some things", Toast.LENGTH_SHORT).show();
+        } else {
+            double massa = Integer.parseInt(pp);
+            double d1 = Integer.parseInt(DD);
+            double d2 = Integer.parseInt(dd);
+            double v0 = Integer.parseInt(V0);
+            double vel=(v0*d1/d2)*r;
+            double vf=(((massa*(9.8)*mu)/massa));
+            String forsa=Double.toString(vf);
+            alex.setText(forsa);
+
+
+        }
+        if (add == 0) {
+            call();
+        } else {
+            // Toast.makeText(this, "we don't have any ad", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        RadioButton cinc=findViewById(R.id.five);
+        RadioButton cuatre=findViewById(R.id.four);
+        RadioButton ovni=findViewById(R.id.omni);
+        RadioButton dos=findViewById(R.id.two);
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.five:
+                if (checked)
+                    mu=0.6745;
+                    r=0.127/2;
+                    cuatre.setActivated(false);
+                    ovni.setActivated(false);
+                    dos.setActivated(false);
+                    break;
+            case R.id.four:
+                if (checked)
+                    mu=0.8098;
+                    r=0.1016/2;
+                    // Ninjas rule
+                cinc.setActivated(false);
+                ovni.setActivated(false);
+                dos.setActivated(false);
+                    break;
+            case R.id.omni:
+                if (checked)
+                    mu=0.9325;
+                    r=0.1016/2;
+                    // Pirates are the best
+                cuatre.setActivated(false);
+                cinc.setActivated(false);
+                dos.setActivated(false);
+                    break;
+            case R.id.two:
+                if (checked)
+                    mu=0.9325;
+                    r=0.06985/2;
+                    // Pirates are the best
+                cuatre.setActivated(false);
+                ovni.setActivated(false);
+                cinc.setActivated(false);
+                    break;
+        }
+    }
     @Override
     public void onRewarded(RewardItem reward) {
         Toast.makeText(this, "Now you'll have 5 minutes without adds", Toast.LENGTH_SHORT).show();
@@ -439,7 +521,7 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
     }
 
     public void info(View view) {
-        Uri uri = Uri.parse("https://www.instagram.com/marsdeveloppers/"); // missing 'http://' will cause crashed
+        Uri uri = Uri.parse("https://www.instagram.com/marsdevelopers/"); // missing 'http://' will cause crashed
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
@@ -447,18 +529,14 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
     public void help(View view) {
         Toast.makeText(this, "The normal motors default speed is 100, but on the high speed motors is 160", Toast.LENGTH_LONG).show();
     }
-    private void check() {
-        if (getIntent().getExtras() != null) {
 
-            for (String key : getIntent().getExtras().keySet()) {
-                String value = getIntent().getExtras().getString(key);
-
-                if (key.equals("AnotherActivity") && value.equals("True")) {
-                    Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=mars.jesus_protegeix_nos"); // missing 'http://' will cause crashed
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            }
+    public void composeEmail(View view) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, "marsdeveloppers@gmail.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Mars Developpers");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
         }
     }
 

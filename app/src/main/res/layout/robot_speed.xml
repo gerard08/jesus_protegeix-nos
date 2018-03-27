@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <android.support.v7.widget.AppCompatRadioButton
+            android:text="omnidireccionals wheels"
+            android:layout_width="wrap_content"
+            android:id="@+id/omni"
+            android:onClick="onRadioButtonClicked"
+            android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="5'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/five"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="4'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/four"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="2.75'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/two"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/pesrobot"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/velocidadinicial"
+            android:layout_alignStart="@+id/velocidadinicial"
+            android:layout_below="@+id/velocidadinicial"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Robot weight"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="177dp" />
+        <EditText
+            android:id="@+id/v0"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/velocidadinicial"
+            android:layout_alignStart="@+id/velocidadinicial"
+            android:layout_below="@+id/velocidadinicial"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="Motor speed"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="177dp" />
+        <EditText
+            android:id="@+id/dentetes1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/velocidadinicial"
+            android:layout_alignStart="@+id/velocidadinicial"
+            android:layout_below="@+id/velocidadinicial"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="nº of tooth of the first gear"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <EditText
+            android:id="@+id/dentetes2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button"
+            android:layout_alignLeft="@+id/dentes1"
+            android:layout_alignStart="@+id/dentes1"
+            android:layout_marginBottom="78dp"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:hint="nº of tooth of the second gear"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="177dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rodonet"
+            android:onClick="velocidad_robot"
+            android:text="Compute"
+            android:textColor="@android:color/white"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="494dp" />
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:textSize="20dp"
+           android:id="@+id/ortega"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
