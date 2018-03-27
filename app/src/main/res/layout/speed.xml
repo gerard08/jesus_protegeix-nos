@@ -9,7 +9,41 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="omnidireccionals wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/omni"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="5'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/five"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="4'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/four"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.AppCompatRadioButton
+                android:text="2.75'' wheels"
+                android:layout_width="wrap_content"
+                android:id="@+id/two"
+                android:onClick="onRadioButtonClicked"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
         <EditText
             android:id="@+id/velocidadinicial"
             android:layout_width="300dp"

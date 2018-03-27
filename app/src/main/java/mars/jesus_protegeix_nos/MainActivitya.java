@@ -384,10 +384,22 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             double DENT2 = Integer.parseInt(dd);
             double Velocitat;
             Velocitat = (VEL1 * DENT1 / DENT2);
-            String speety = String.format("%.2f", (Velocitat / 60 * 2 * Math.PI));//falta afegir el radi de desplaçament, sino està en radiants!!
-            jaume.setText(speety + "rad/s");
+            String speety = String.format("%.2f", (Velocitat / 60 * 2 * Math.PI)*r);//falta afegir el radi de desplaçament, sino està en radiants!!
+            jaume.setText(speety + "m/s");
             Toast.makeText(this, "Keep in mind that this is the gear speed, and we're not counting your pieces weigh or the friction", Toast.LENGTH_LONG).show();
         }
+        RadioButton cinc=findViewById(R.id.five);
+        RadioButton cuatre=findViewById(R.id.four);
+        RadioButton ovni=findViewById(R.id.omni);
+        RadioButton dos=findViewById(R.id.two);
+        cuatre.setEnabled(true);
+        cinc.setEnabled(true);
+        dos.setEnabled(true);
+        ovni.setEnabled(true);
+        cuatre.setChecked(false);
+        cinc.setChecked(false);
+        dos.setChecked(false);
+        ovni.setChecked(false);
         if (add == 0) {
             call();
         } else {
@@ -406,6 +418,10 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
         EditText v = findViewById(R.id.v0);
         String V0 = v.getText().toString();
         TextView alex = findViewById(R.id.ortega);
+        RadioButton cinc=findViewById(R.id.five);
+        RadioButton cuatre=findViewById(R.id.four);
+        RadioButton ovni=findViewById(R.id.omni);
+        RadioButton dos=findViewById(R.id.two);
         if (pp.equals("") && DD.equals("")) {
             Toast.makeText(this, "You forgot to fill some things", Toast.LENGTH_SHORT).show();
         } else {
@@ -414,10 +430,17 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
             double d2 = Integer.parseInt(dd);
             double v0 = Integer.parseInt(V0);
             double vel=(v0*d1/d2)*r;
-            double vf=(((massa*(9.8)*mu)/massa));
+            double vf=(vel-((massa*(9.8)*mu)/massa));
             String forsa=Double.toString(vf);
             alex.setText(forsa);
-
+            cuatre.setEnabled(true);
+            cinc.setEnabled(true);
+            dos.setEnabled(true);
+            ovni.setEnabled(true);
+            cuatre.setChecked(false);
+            cinc.setChecked(false);
+            dos.setChecked(false);
+            ovni.setChecked(false);
 
         }
         if (add == 0) {
@@ -441,36 +464,36 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
                 if (checked)
                     mu=0.6745;
                     r=0.127/2;
-                    cuatre.setActivated(false);
-                    ovni.setActivated(false);
-                    dos.setActivated(false);
+                    cuatre.setEnabled(false);
+                    ovni.setEnabled(false);
+                    dos.setEnabled(false);
                     break;
             case R.id.four:
                 if (checked)
                     mu=0.8098;
                     r=0.1016/2;
                     // Ninjas rule
-                cinc.setActivated(false);
-                ovni.setActivated(false);
-                dos.setActivated(false);
+                cinc.setEnabled(false);
+                ovni.setEnabled(false);
+                dos.setEnabled(false);
                     break;
             case R.id.omni:
                 if (checked)
                     mu=0.9325;
                     r=0.1016/2;
                     // Pirates are the best
-                cuatre.setActivated(false);
-                cinc.setActivated(false);
-                dos.setActivated(false);
+                cuatre.setEnabled(false);
+                cinc.setEnabled(false);
+                dos.setEnabled(false);
                     break;
             case R.id.two:
                 if (checked)
                     mu=0.9325;
                     r=0.06985/2;
                     // Pirates are the best
-                cuatre.setActivated(false);
-                ovni.setActivated(false);
-                cinc.setActivated(false);
+                cuatre.setEnabled(false);
+                ovni.setEnabled(false);
+                cinc.setEnabled(false);
                     break;
         }
     }

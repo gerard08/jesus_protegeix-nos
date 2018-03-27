@@ -20,10 +20,10 @@
             android:id="@+id/torqueengranatge"
             android:icon="@drawable/engranatges"
             android:title="gears" />
-        <item
+        <!--<item
             android:id="@+id/robotspeed"
             android:icon="@drawable/engranatges"
-            android:title="robot speed" />
+            android:title="robot speed" />-->
     </group>
 
     <item android:title="Communicate">
