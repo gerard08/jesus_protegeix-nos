@@ -101,7 +101,11 @@ public class MainActivitya extends AppCompatActivity implements NavigationView.O
 
     private void call() {
         if (anunci.isLoaded()) {
-            anunci.show();
+            double loteria=Math.random();
+          //  Toast.makeText(this, Double.toString(loteria), Toast.LENGTH_SHORT).show();
+            if (loteria<0.3) {
+                anunci.show();
+            }
         } else {
             add();
         }
